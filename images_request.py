@@ -33,8 +33,6 @@ db_password = input('Enter database password: ')
 # data = request_image()
 # print(data)
 
-server = socket.gethostbyname(socket.gethostname())
-
 # data = request_image('PIA00001')['collection']['items'][0]
 
 # print(data)
