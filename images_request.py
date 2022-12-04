@@ -13,6 +13,9 @@ def request_image(image_id):
   response = requests.get(API_Root, params=parameters).json()
   return response
 
+db_password = input('Enter database password: ')
+
+
 # to test what happens when the requested
 # data (PIA00000) is not available: no error
 # but field of info is empty
@@ -38,7 +41,7 @@ server = socket.gethostbyname(socket.gethostname())
 
 try:
     connection = psycopg2.connect(user="postgres",
-                                  password="Genesis-01",
+                                  password=str(db_password),
                                   # host="str(server)",
                                   port="5432",
                                   database="nasa")
@@ -50,7 +53,7 @@ try:
 
     count = 0
 
-    while count<500:
+    while count<10:
       try:
           random_number = ''.join(choice(digits) for i in range(5))
           image_id = 'PIA'+random_number
